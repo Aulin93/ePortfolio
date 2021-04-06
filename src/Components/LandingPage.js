@@ -9,17 +9,21 @@ export function LandingPage() {
   const [renderKeeperOfStats, setRenderKeeperOfStats] = useState(false);
   const [renderDiceRoller, setRenderDiceRoller] = useState(false);
   const [renderTowerDefense, setRenderTowerDefense] = useState(false);
-  const [renderPortfolio, setRenderPortfolio] = useState(false)
+  const [renderPortfolio, setRenderPortfolio] = useState(false);
 
   return (
     <>
       <h1>Välkommen!</h1>
       <p>
         Hej och välkommen till Alexander Aulins e-portfolio. Jag är en
-        programmerare som tycker om att ta mig an nya utmaningar. Jag har samlat
-        några av mina projekt här som jag fritt kan dela med mig av och hoppas
-        att du kommer hitta något intressant i dem. Om du har förslag eller
-        annars vill kontakta mig så kan du maila mig på alex.aulin@hotmail.com
+        programmerare som tycker om att ta mig an nya utmaningar. Här finner du
+        några av mina projekt som jag fritt kan dela med mig av och hoppas att
+        du kommer hitta något intressant i dem. Med varje projekt har jag
+        försökt lära mig något nytt som jag kan dra nytta av i framtida projekt,
+        jag delar gärna med mig av det jag har gjort och lärt mig, så du kan
+        enkelt hitta källkoden till alla projekt jag har lagt upp här. Om du har
+        förslag på förbättringar eller annars vill kontakta mig så kan du maila mig på
+        alex.aulin@hotmail.com
       </p>
       <h2>Mina samlade verk</h2>
       <div hidden={renderDiceRoller ? "" : "hidden"}>

@@ -1,11 +1,13 @@
 import { Button, TextField } from "@material-ui/core";
 import { useState } from "react";
+import { LordOfChange } from "./LordOfChange";
 import { Stat } from "./Stat";
 
 export function KeeperOfStats() {
   const [statName, setStatName] = useState("");
   const [statValue, setStatValue] = useState(0);
   const [trackedStats, setTrackedStats] = useState([]);
+  const [selectedMonster, setSelectedMonster] = useState("Lord of Change");
 
   return (
     <div>
@@ -29,13 +31,30 @@ export function KeeperOfStats() {
       <Button
         variant="contained"
         onClick={() => {
-          //trackedStats.push(<Stat name={statName} value={statValue}/>);
           setTrackedStats(
-            trackedStats.concat([<Stat name={statName} value={statValue} />])
+            trackedStats.concat([<Stat name={statName} value={statValue -0} />])
           );
         }}
       >
         Track New Stat
+      </Button>
+      <select onChange={(event) => setSelectedMonster(event.target.value)}>
+        <option value="Lord of Change">Lord of Change</option>
+      </select>
+      <Button
+        variant="contained"
+        onClick={() => {
+          switch (selectedMonster) {
+            case "Lord of Change":
+              setTrackedStats(trackedStats.concat([<LordOfChange />]));
+              break;
+
+            default:
+              break;
+          }
+        }}
+      >
+        Track Monster
       </Button>
       {trackedStats}
     </div>
