@@ -15,7 +15,7 @@ export function KeeperOfStats() {
         hålla koll på alla olika poäng och diverse som spelare måste hålla koll
         på i krigsspelet Warhammer: Age of Sigmar. Om du vill kolla igenom
         källkoden så kan du följa länken till mitt GitHub repository för den här
-        hemsidan som du kommer åt via knappen "Den Här e-Portfolion"
+        hemsidan som du kommer åt via knappen "Denna e-Portfolio"
       </p>
       <TextField
         label="Stat Name"

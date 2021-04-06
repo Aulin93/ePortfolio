@@ -17,8 +17,8 @@ export function DestinyDiceRoller() {
         Det här är en enkel tärningskast-simulator jag skapade för att förenkla
         vissa situationer i krigsspelet Warhammer: Age of Sigmar. Om du vill
         kolla igenom källkoden så kan du följa länken till mitt GitHub
-        repository för den här hemsidan som du kommer åt via knappen "Den Här
-        e-Portfolion"
+        repository för den här hemsidan som du kommer åt via knappen "Denna
+        e-Portfolio"
       </p>
       <TextField
         label="Number of Dice"
