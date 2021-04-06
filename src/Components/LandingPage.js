@@ -2,12 +2,14 @@ import { Button } from "@material-ui/core";
 import { useState } from "react";
 import { DestinyDiceRoller } from "./DestinyDiceRoller";
 import { KeeperOfStats } from "./KeeperOfStats";
+import { Porfolio } from "./Portfolio";
 import { SurvivalTowerDefense } from "./SurvivalTowerDefense";
 
 export function LandingPage() {
   const [renderKeeperOfStats, setRenderKeeperOfStats] = useState(false);
   const [renderDiceRoller, setRenderDiceRoller] = useState(false);
   const [renderTowerDefense, setRenderTowerDefense] = useState(false);
+  const [renderPortfolio, setRenderPortfolio] = useState(false)
 
   return (
     <>
@@ -29,6 +31,9 @@ export function LandingPage() {
       <div hidden={renderTowerDefense ? "" : "hidden"}>
         <SurvivalTowerDefense />
       </div>
+      <div hidden={renderPortfolio ? "" : "hidden"}>
+        <Porfolio />
+      </div>
       <Button
         variant="contained"
         color="primary"
@@ -36,6 +41,7 @@ export function LandingPage() {
           setRenderDiceRoller(true);
           setRenderKeeperOfStats(false);
           setRenderTowerDefense(false);
+          setRenderPortfolio(false);
         }}
       >
         Destiny Dice Roller
@@ -47,6 +53,7 @@ export function LandingPage() {
           setRenderKeeperOfStats(true);
           setRenderDiceRoller(false);
           setRenderTowerDefense(false);
+          setRenderPortfolio(false);
         }}
       >
         Keeper of Stats
@@ -58,9 +65,22 @@ export function LandingPage() {
           setRenderTowerDefense(true);
           setRenderKeeperOfStats(false);
           setRenderDiceRoller(false);
+          setRenderPortfolio(false);
         }}
       >
         Survival Tower Defense Game
+      </Button>
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={() => {
+          setRenderPortfolio(true);
+          setRenderTowerDefense(false);
+          setRenderKeeperOfStats(false);
+          setRenderDiceRoller(false);
+        }}
+      >
+        Denna e-Portfolio
       </Button>
     </>
   );
