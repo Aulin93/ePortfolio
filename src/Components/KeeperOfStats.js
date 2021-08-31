@@ -1,8 +1,12 @@
 import { Button, TextField } from "@material-ui/core";
 import { useState } from "react";
+import { KairosFateweaver } from "./KairosFateweaver";
 import { LordOfChange } from "./LordOfChange";
 import { MegaBossOnMawKrusha } from "./MegaBossOnMawKrusha";
 import { Stat } from "./Stat";
+import { Thanquol } from "./Thanquol";
+import { VerminlordCorruptor } from "./VerminlordCorruptor";
+import { VerminlordWarpseer } from "./VerminlordWarpseer";
 
 export function KeeperOfStats() {
   const [statName, setStatName] = useState("");
@@ -41,7 +45,11 @@ export function KeeperOfStats() {
       </Button>
       <select onChange={(event) => setSelectedMonster(event.target.value)}>
         <option value="Lord of Change">Lord of Change</option>
+        <option value="Kairos Fateweaver">Kairos Fateweaver</option>
         <option value="Megaboss on Maw-Krusha">Megaboss on Maw-Krusha</option>
+        <option value="Thanquol">Thanquol</option>
+        <option value="Verminlord Warpseer">Verminlord Warpseer</option>
+        <option value="Verminlord Corruptor">Verminlord Corruptor</option>
       </select>
       <Button
         variant="contained"
@@ -50,8 +58,20 @@ export function KeeperOfStats() {
             case "Lord of Change":
               setTrackedStats(trackedStats.concat([<LordOfChange />]));
               break;
+            case "Kairos Fateweaver":
+              setTrackedStats(trackedStats.concat([<KairosFateweaver />]));
+              break;
             case "Megaboss on Maw-Krusha":
               setTrackedStats(trackedStats.concat([<MegaBossOnMawKrusha />]));
+              break;
+            case "Thanquol":
+              setTrackedStats(trackedStats.concat([<Thanquol />]));
+              break;
+            case "Verminlord Warpseer":
+              setTrackedStats(trackedStats.concat([<VerminlordWarpseer />]));
+              break;
+            case "Verminlord Corruptor":
+              setTrackedStats(trackedStats.concat([<VerminlordCorruptor />]));
               break;
             default:
               break;
