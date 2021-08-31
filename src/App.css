@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.StatBlock {
+  border: solid black;
+  padding: auto;
+  margin: 5px;
+}
+
+.WeaponProfile {
+  border: solid goldenrod;
+}

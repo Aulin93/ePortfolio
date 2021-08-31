@@ -1,6 +1,7 @@
 import { Button, TextField } from "@material-ui/core";
 import { useState } from "react";
 import { LordOfChange } from "./LordOfChange";
+import { MegaBossOnMawKrusha } from "./MegaBossOnMawKrusha";
 import { Stat } from "./Stat";
 
 export function KeeperOfStats() {
@@ -40,6 +41,7 @@ export function KeeperOfStats() {
       </Button>
       <select onChange={(event) => setSelectedMonster(event.target.value)}>
         <option value="Lord of Change">Lord of Change</option>
+        <option value="Megaboss on Maw-Krusha">Megaboss on Maw-Krusha</option>
       </select>
       <Button
         variant="contained"
@@ -48,7 +50,9 @@ export function KeeperOfStats() {
             case "Lord of Change":
               setTrackedStats(trackedStats.concat([<LordOfChange />]));
               break;
-
+            case "Megaboss on Maw-Krusha":
+              setTrackedStats(trackedStats.concat([<MegaBossOnMawKrusha />]));
+              break;
             default:
               break;
           }

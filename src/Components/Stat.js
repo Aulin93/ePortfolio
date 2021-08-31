@@ -6,7 +6,7 @@ export function Stat(props) {
     const [statValue, setStatValue] = useState(props.value)
 
     return (
-        <div>
+        <div className="StatBlock">
             {props.name}: {statValue}
             <Button variant="contained" color="primary" onClick={() => setStatValue(statValue + 1)}>Increment</Button>
             <Button variant="contained" color="primary" onClick={() => setStatValue(statValue - 1)}>Decrement</Button>
