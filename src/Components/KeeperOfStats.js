@@ -13,6 +13,8 @@ export function KeeperOfStats() {
   const [statValue, setStatValue] = useState(0);
   const [trackedStats, setTrackedStats] = useState([]);
   const [selectedMonster, setSelectedMonster] = useState("Lord of Change");
+  const [keyIDNumber, setKeyIDNumber] = useState(0);
+
 
   return (
     <div>
@@ -31,14 +33,15 @@ export function KeeperOfStats() {
       <TextField
         label="Stat Value"
         type="number"
-        onChange={(event) => setStatValue(event.target.value)}
+        onChange={(event) => setStatValue(event.target.valueAsNumber)}
       />
       <Button
         variant="contained"
         onClick={() => {
           setTrackedStats(
-            trackedStats.concat([<Stat name={statName} value={statValue -0} />])
+            trackedStats.concat([<Stat name={statName} value={statValue} key={"keyIDNumber: "+keyIDNumber}/>])
           );
+          setKeyIDNumber(keyIDNumber + 1);
         }}
       >
         Track New Stat
@@ -56,26 +59,27 @@ export function KeeperOfStats() {
         onClick={() => {
           switch (selectedMonster) {
             case "Lord of Change":
-              setTrackedStats(trackedStats.concat([<LordOfChange />]));
+              setTrackedStats(trackedStats.concat([<LordOfChange key={"keyIDNumber: "+keyIDNumber}/>]));
               break;
             case "Kairos Fateweaver":
-              setTrackedStats(trackedStats.concat([<KairosFateweaver />]));
+              setTrackedStats(trackedStats.concat([<KairosFateweaver key={"keyIDNumber: "+keyIDNumber}/>]));
               break;
             case "Megaboss on Maw-Krusha":
-              setTrackedStats(trackedStats.concat([<MegaBossOnMawKrusha />]));
+              setTrackedStats(trackedStats.concat([<MegaBossOnMawKrusha key={"keyIDNumber: "+keyIDNumber}/>]));
               break;
             case "Thanquol":
-              setTrackedStats(trackedStats.concat([<Thanquol />]));
+              setTrackedStats(trackedStats.concat([<Thanquol key={"keyIDNumber: "+keyIDNumber}/>]));
               break;
             case "Verminlord Warpseer":
-              setTrackedStats(trackedStats.concat([<VerminlordWarpseer />]));
+              setTrackedStats(trackedStats.concat([<VerminlordWarpseer key={"keyIDNumber: "+keyIDNumber}/>]));
               break;
             case "Verminlord Corruptor":
-              setTrackedStats(trackedStats.concat([<VerminlordCorruptor />]));
+              setTrackedStats(trackedStats.concat([<VerminlordCorruptor key={"keyIDNumber: "+keyIDNumber}/>]));
               break;
             default:
               break;
           }
+          setKeyIDNumber(keyIDNumber + 1);
         }}
       >
         Track Monster

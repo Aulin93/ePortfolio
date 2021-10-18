@@ -1,15 +1,64 @@
-import { Button } from "@material-ui/core";
+import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  TextField,
+} from "@material-ui/core";
 import { useState } from "react";
 
 export function Stat(props) {
+  const [statValue, setStatValue] = useState(props.value);
+  const [changeValue, setChangeValue] = useState(0);
+  const [open, setOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
 
-    const [statValue, setStatValue] = useState(props.value)
+  const handleClose = () => {
+    setStatValue(statValue + changeValue);
+    setOpen(false);
+  };
 
-    return (
+  return (
+    <>
+      {visible ? (
         <div className="StatBlock">
-            {props.name}: {statValue}
-            <Button variant="contained" color="primary" onClick={() => setStatValue(statValue + 1)}>Increment</Button>
-            <Button variant="contained" color="primary" onClick={() => setStatValue(statValue - 1)}>Decrement</Button>
+          <Dialog open={open} onClose={() => setOpen(false)}>
+            <DialogTitle>{props.name}</DialogTitle>
+            <DialogContent>
+              <DialogContentText>
+                Choose a value to change this stat with
+              </DialogContentText>
+              <TextField
+                label="Change by"
+                type="number"
+                onChange={(event) => setChangeValue(event.target.valueAsNumber)}
+              />
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleClose}>Confirm</Button>
+            </DialogActions>
+          </Dialog>
+          {props.name}: {statValue}
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => setOpen(true)}
+          >
+            Change Value
+          </Button>
+          <br/>
+          <br/>
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={() => setVisible(false)}
+          >
+            Stop Tracking This
+          </Button>
         </div>
-    );
+      ) : null}
+    </>
+  );
 }

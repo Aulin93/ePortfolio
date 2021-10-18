@@ -26,18 +26,6 @@ export function LandingPage() {
         alex.aulin@hotmail.com
       </p>
       <h2>Mina samlade verk</h2>
-      <div hidden={renderDiceRoller ? "" : "hidden"}>
-        <DestinyDiceRoller />
-      </div>
-      <div hidden={renderKeeperOfStats ? "" : "hidden"}>
-        <KeeperOfStats />
-      </div>
-      <div hidden={renderTowerDefense ? "" : "hidden"}>
-        <SurvivalTowerDefense />
-      </div>
-      <div hidden={renderPortfolio ? "" : "hidden"}>
-        <Porfolio />
-      </div>
       <Button
         variant="contained"
         color="primary"
@@ -86,6 +74,18 @@ export function LandingPage() {
       >
         Denna e-Portfolio
       </Button>
+      <div hidden={renderDiceRoller ? "" : "hidden"}>
+        <DestinyDiceRoller />
+      </div>
+      <div hidden={renderKeeperOfStats ? "" : "hidden"}>
+        <KeeperOfStats />
+      </div>
+      <div hidden={renderTowerDefense ? "" : "hidden"}>
+        <SurvivalTowerDefense />
+      </div>
+      <div hidden={renderPortfolio ? "" : "hidden"}>
+        <Porfolio />
+      </div>
     </>
   );
 }
