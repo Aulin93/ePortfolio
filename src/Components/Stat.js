@@ -41,13 +41,15 @@ export function Stat(props) {
             </DialogActions>
           </Dialog>
           {props.name}: {statValue}
-          <Button
+          {props.modifiable && (
+            <Button
             variant="contained"
             color="primary"
             onClick={() => setOpen(true)}
           >
             Change Value
           </Button>
+          )}
           <br/>
           <br/>
           <Button

@@ -9,6 +9,9 @@ export function DestinyDiceRoller() {
   const [rolledSum, setRolledSum] = useState(0);
   const [hits, setHits] = useState(0);
   const [hasResults, setHasResults] = useState(false);
+  const [filtered, setFiltered] = useState(false);
+  const [filter, setFilter] = useState(0);
+  const [filteredResult, setFilteredResult] = useState([]);
 
   return (
     <div>
@@ -23,17 +26,17 @@ export function DestinyDiceRoller() {
       <TextField
         label="Number of Dice"
         type="number"
-        onChange={(event) => setDiceNumber(event.target.value)}
+        onChange={(event) => setDiceNumber(event.target.valueAsNumber)}
       />
       <TextField
         label="Type of Dice"
         type="number"
-        onChange={(event) => setDieType(event.target.value)}
+        onChange={(event) => setDieType(event.target.valueAsNumber)}
       />
       <TextField
         label="Target Number"
         type="number"
-        onChange={(event) => setTargetNumber(event.target.value)}
+        onChange={(event) => setTargetNumber(event.target.valueAsNumber)}
       />
       <Button
         variant="contained"
@@ -54,11 +57,12 @@ export function DestinyDiceRoller() {
           setRolledSum(sum);
           setHits(successes);
           setHasResults(true);
+          setFiltered(false);
         }}
       >
         Roll Dice
       </Button>
-      {hasResults && (
+      {hasResults && !filtered && (
         <div>
           <p>
             Result:{" "}
@@ -68,6 +72,43 @@ export function DestinyDiceRoller() {
           </p>
           <p>Successes: {hits}</p>
           <p>Sum: {rolledSum}</p>
+          <TextField
+            label="Filter by"
+            type="number"
+            onChange={(event) => setFilter(event.target.valueAsNumber)}
+          />
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => {
+              setFiltered(true);
+              setFilteredResult(results.filter((die) => die === filter));
+            }}
+          >
+            Filter Result
+          </Button>
+        </div>
+      )}
+      {hasResults && filtered && (
+        <div>
+          <p>
+            Result:{" "}
+            {filteredResult.map((result) => {
+              return result + ", ";
+            })}
+          </p>
+          <p>
+            Number of {filter}: {filteredResult.length}
+          </p>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => {
+              setFiltered(false);
+            }}
+          >
+            Unfilter
+          </Button>
         </div>
       )}
     </div>
